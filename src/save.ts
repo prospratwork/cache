@@ -40,6 +40,11 @@ async function run(): Promise<void> {
             return;
         }
 
+        if (core.getBooleanInput(Inputs.RunSave) === false) {
+            core.info(`Cache save disabled by Input, not saving cache.`);
+            return;
+        }
+
         const cachePaths = utils.getInputAsArray(Inputs.Path, {
             required: true
         });
